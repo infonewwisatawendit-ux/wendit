@@ -1,0 +1,29 @@
+tulisan paket wisuda = wisuda.png
+
+urutan 
+reguler.png
+terusan.png
+
+keterangan text : 
+
+Wisuda Reguler
+- Tiket masuk New Wisata Wendit
+- Lunchbox (Ibu & Anak) 
+- Guide 
+- Hall W.Dome 
+- Sound System + Videotron
+- Panggung + dekorasi
+- Vandel merchandise
+- Dokumentasi
+- 4 Kolam renang
+
+Wisuda Terusan
+- Tiket masuk New Wisata Wendit
+- Lunchbox (Ibu & Anak) 
+- Guide 
+- Hall W.Dome 
+- Sound System + Videotron
+- Panggung + dekorasi
+- Vandel merchandise
+-Dokumentasi
+- 4 Kolam renang + 10 Wahana

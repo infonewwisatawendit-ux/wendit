@@ -1,0 +1,27 @@
+tulisan paket outbound = outbound.png
+
+urutan 
+expert.png
+mini.png
+
+keterangan text: 
+
+Outbound Exp 
+- Tiket masuk reguler
+- Hall W-Dome 
+- Lunch box 
+- Icebreaking 
+- Area kegiatan 
+- Animal Show 
+- Outbond with trainer (durasi 90-120menit) 
+- Guide
+
+Oubound Mini
+- Tiket masuk reguler 
+- Hall W-Dome
+- Lunch box 
+- Icebreaking
+- Area kegiatan 
+- Animal Show
+- Outbond with trainer (durasi 45-60menit) 
+- Guide

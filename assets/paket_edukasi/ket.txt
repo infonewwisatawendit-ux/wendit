@@ -1,0 +1,28 @@
+tulisan paket edukasi = Edukasi.png
+
+urutan berdasar harga pada paket edukasi : 
+Petani.png 
+Feeding.png
+Coklat.png
+Topeng.png
+Satwa.png 
+totebag.png
+ 
+
+kemudian dalam card edukasi tambah keterangan teks :
+
+Reguler 
+- Tiket Masuk,  Ice breaking, Fun Games 
+- Animal Show, Tour Guide, makan siang 
+- Sertifikat Sekolah & Dokumentasi 
+- Gratis 4 kolam renang 
+- Merchandise hasil edukasi 
+
+
+Terusan
+- Tiket Masuk,  Ice breaking, Fun Games
+- Animal Show, Tour Guide, makan siang
+- Sertifikat Sekolah & Dokumentasi
+- Gratis 4 kolam renang
+- Merchandise hasil edukasi
+- Gratis 10 wahana
