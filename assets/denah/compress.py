@@ -3,7 +3,7 @@ import os
 
 Image.MAX_IMAGE_PIXELS = None
 
-SRC = "light.jpeg"
+SRC = "Peta.jpg.jpeg"
 DST = "Denah-web.jpeg"
 TMP = "Denah-web.tmp.jpeg"
 

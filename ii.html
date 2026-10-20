@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#008d18">
+  <title>New Wisata Wendit</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ===== Reset & dasar ===== */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: url('assets/BG.jpeg') center/cover no-repeat fixed;
+      background-color: #0b7a1c;
+      color: #111;
+      padding-top: 90px;
+    }
+
+    /* ===== Navbar FIXED ===== */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding-top: 10px;
+    }
+
+    /* ============================================================
+       NAV AKTIF: GARIS BAWAH HITAM, FULL SELEBAR TEKS
+       ============================================================ */
+    .nav-link,
+    .mobile-link {
+      position: relative;
+      text-decoration: none;
+      color: inherit;
+      padding-bottom: 4px;
+    }
+    .nav-link::after,
+    .mobile-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: #000;
+      transition: width .25s ease;
+    }
+    .nav-link.active::after,
+    .mobile-link.active::after { width: 100%; }
+
+    .nav-link.active,
+    .mobile-link.active { color: inherit; }
+
+    /* ===== Konten utama ===== */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    /* ===== Section ===== */
+    .section {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+      width: 100%;
+    }
+    .section.active {
+      display: flex;
+      animation: fadeInSection .35s ease;
+    }
+    @keyframes fadeInSection {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Kotak container ===== */
+    .box-container {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+      position: relative;
+    }
+    .box-container img,
+    .box-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: inherit;
+      background: #000;
+    }
+
+    /* ===== Khusus Denah ===== */
+    .denah-container {
+      aspect-ratio: auto;
+      background: #fff;
+    }
+    .denah-container img {
+      object-fit: contain;
+      height: auto;
+      background: #fff;
+    }
+    .map-container {
+      aspect-ratio: 16 / 9;
+      background: #e5e5e5;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+      border-radius: inherit;
+    }
+
+    /* ===== Tombol Informasi & Reservasi ===== */
+    .btn-reservasi {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+      margin: 0 auto;
+      padding: 18px 48px;
+      background: #f5c400;
+      color: #111;
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 999px;
+      border: 3px solid #1a1a1a;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: transform .15s ease, box-shadow .15s ease;
+      max-width: 100%;
+    }
+    .btn-reservasi:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+    }
+    .btn-reservasi:active { transform: translateY(0); }
+
+    /* ============================================================
+       SLIDER (dipakai galeri & paket)
+       ============================================================ */
+    .slider {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 40px;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    }
+    .slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform .6s cubic-bezier(.22, .61, .36, 1);
+      will-change: transform;
+    }
+    .slide {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+      transform: scale(1.08);
+      transition: transform 1.2s ease;
+    }
+    .slide.is-active img { transform: scale(1); }
+
+    /* Tombol kiri/kanan */
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid #1a1a1a;
+      background: rgba(245, 196, 0, 0.95);
+      color: #111;
+      font-size: 24px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+      z-index: 5;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .slider-btn:hover  { transform: translateY(-50%) scale(1.1); background: #ffd633; }
+    .slider-btn:active { transform: translateY(-50%) scale(.95); }
+    .slider-btn.prev   { left: 16px; }
+    .slider-btn.next   { right: 16px; }
+
+    /* Dots */
+    .slider-dots {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 5;
+    }
+    .slider-dots button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      transition: background .25s ease, transform .25s ease, width .25s ease;
+    }
+    .slider-dots button.active {
+      background: #f5c400;
+      border-color: #f5c400;
+      width: 26px;
+      border-radius: 999px;
+    }
+
+    /* Progress bar */
+    .slider-progress {
+      position: absolute;
+      top: 0; left: 0;
+      height: 4px;
+      background: #f5c400;
+      width: 0%;
+      z-index: 6;
+      transition: width .6s cubic-bezier(.22, .61, .36, 1);
+    }
+
+    /* ===== Mobile menu ===== */
+    .mobile-menu { display: none; }
+    .mobile-menu.open { display: flex; }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 900px) {
+      body { padding-top: 84px; }
+      main { padding: 20px 16px 50px; gap: 22px; }
+      .section { gap: 22px; }
+      .box-container, .slider { border-radius: 32px; }
+      .btn-reservasi { padding: 16px 40px; font-size: 16px; }
+      .slider-btn { width: 46px; height: 46px; font-size: 20px; }
+    }
+    @media (max-width: 600px) {
+      body { padding-top: 76px; }
+      main { padding: 16px 14px 40px; gap: 18px; }
+      .section { gap: 18px; }
+      .box-container, .slider {
+        border-radius: 24px;
+      }
+      .slider { aspect-ratio: 4 / 5; }
+      .box-container:not(.denah-container):not(.map-container) { aspect-ratio: 4 / 5; }
+      .map-container { aspect-ratio: 4 / 3; }
+      .btn-reservasi {
+        padding: 14px 28px;
+        font-size: 14px;
+        letter-spacing: .5px;
+        border-width: 2px;
+        width: 100%;
+        max-width: 320px;
+      }
+      .slider-btn { width: 40px; height: 40px; font-size: 18px; }
+      .slider-btn.prev { left: 8px; }
+      .slider-btn.next { right: 8px; }
+    }
+    @media (max-width: 380px) {
+      body { padding-top: 70px; }
+      .btn-reservasi { padding: 12px 20px; font-size: 13px; }
+    }
+    @media (min-width: 1400px) {
+      main { max-width: 1200px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .btn-reservasi, .slider-btn { transition: none; }
+      .slides { transition: none; }
+      .slide img { transition: none; transform: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="navbar" aria-label="Navigasi utama">
+
+      <div class="nav-group nav-group-left">
+        <a href="#beranda" class="nav-link active" data-nav="beranda" aria-current="page">BERANDA</a>
+        <a href="#galeri"  class="nav-link" data-nav="galeri">GALERI</a>
+      </div>
+
+      <a href="#beranda" class="logo-wrap" aria-label="New Wisata Wendit — Beranda">
+        <img src="assets/logo.png" alt="New Wisata Wendit" class="logo">
+      </a>
+
+      <div class="nav-group nav-group-right">
+        <a href="#paket" class="nav-link" data-nav="paket">PAKET</a>
+        <a href="#denah" class="nav-link" data-nav="denah">DENAH</a>
+      </div>
+
+      <button class="menu-toggle"
+              type="button"
+              aria-label="Buka menu"
+              aria-expanded="false"
+              aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#beranda" class="mobile-link active" data-nav="beranda" aria-current="page">BERANDA</a>
+      <a href="#galeri"  class="mobile-link" data-nav="galeri">GALERI</a>
+      <a href="#paket"   class="mobile-link" data-nav="paket">PAKET</a>
+      <a href="#denah"   class="mobile-link" data-nav="denah">DENAH</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ BERANDA ============ -->
+    <section id="beranda" class="section active">
+      <div class="box-container">
+        <video
+          id="berandaVideo"
+          src="assets/videos/beranda.mp4"
+          poster="assets/beranda.jpeg"
+          autoplay
+          loop
+          playsinline
+          controls
+          preload="metadata"
+          aria-label="Video New Wisata Wendit">
+        </video>
+      </div>
+      <a href="#reservasi" class="btn-reservasi">INFORMASI &amp; RESERVASI</a>
+    </section>
+
+    <!-- ============ GALERI ============ -->
+    <section id="galeri" class="section">
+      <div class="slider" data-slider="galeri" data-autoplay="3500">
+        <div class="slider-progress"></div>
+        <div class="slides">
+          <div class="slide is-active"><img src="assets/galery/1.jpg" alt="Galeri 1"></div>
+          <div class="slide"><img src="assets/galery/2.jpg" alt="Galeri 2"></div>
+          <div class="slide"><img src="assets/galery/3.jpg" alt="Galeri 3"></div>
+          <div class="slide"><img src="assets/galery/4.jpg" alt="Galeri 4"></div>
+        </div>
+        <button class="slider-btn prev" type="button" aria-label="Foto sebelumnya">‹</button>
+        <button class="slider-btn next" type="button" aria-label="Foto berikutnya">›</button>
+        <div class="slider-dots"></div>
+      </div>
+      <a href="#reservasi" class="btn-reservasi">INFORMASI &amp; RESERVASI</a>
+    </section>
+
+    <!-- ============ PAKET ============ -->
+    <section id="paket" class="section">
+      <div class="slider" data-slider="paket" data-autoplay="4000">
+        <div class="slider-progress"></div>
+        <div class="slides">
+          <div class="slide is-active"><img src="assets/paket/Paket%20Edukasi.jpg"        alt="Paket Edukasi"></div>
+          <div class="slide"><img src="assets/paket/Paket%20Outbond%20Expert.jpg"         alt="Paket Outbond Expert"></div>
+          <div class="slide"><img src="assets/paket/Paket%20Outbond%20Mini.jpg"           alt="Paket Outbond Mini"></div>
+          <div class="slide"><img src="assets/paket/Paket%20Wisuda%20Reguler.jpg"         alt="Paket Wisuda Reguler"></div>
+          <div class="slide"><img src="assets/paket/Paket%20Wisuda%20Terusan.jpg"         alt="Paket Wisuda Terusan"></div>
+        </div>
+        <button class="slider-btn prev" type="button" aria-label="Paket sebelumnya">‹</button>
+        <button class="slider-btn next" type="button" aria-label="Paket berikutnya">›</button>
+        <div class="slider-dots"></div>
+      </div>
+      <a href="#reservasi" class="btn-reservasi">INFORMASI &amp; RESERVASI</a>
+    </section>
+
+    <!-- ============ DENAH ============ -->
+    <section id="denah" class="section">
+      <div class="box-container denah-container">
+        <img src="assets/denah/Denah.jpg" alt="Denah New Wisata Wendit">
+      </div>
+
+      <div class="box-container map-container">
+        <iframe
+          src="https://www.google.com/maps?q=New+Wisata+Wendit+Malang&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Lokasi New Wisata Wendit di Google Maps">
+        </iframe>
+      </div>
+
+      <a href="#reservasi" class="btn-reservasi">INFORMASI &amp; RESERVASI</a>
+    </section>
+  </main>
+
+  <script>
+    /* ============================================================
+       MOBILE MENU
+       ============================================================ */
+    const toggle = document.querySelector(".menu-toggle");
+    const menu   = document.querySelector(".mobile-menu");
+    const links  = document.querySelectorAll(".mobile-link");
+
+    function setMenu(open) {
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Tutup menu" : "Buka menu");
+      menu.classList.toggle("open", open);
+      document.body.classList.toggle("menu-open", open);
+    }
+    toggle.addEventListener("click", () => {
+      const opened = toggle.getAttribute("aria-expanded") === "true";
+      setMenu(!opened);
+    });
+    links.forEach(link => link.addEventListener("click", () => setMenu(false)));
+    document.addEventListener("click", (e) => {
+      if (!menu.classList.contains("open")) return;
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) setMenu(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && menu.classList.contains("open")) setMenu(false);
+    });
+
+    /* ============================================================
+       NAVIGASI SECTION
+       ============================================================ */
+    const sections = document.querySelectorAll("main section[id]");
+    const allLinks = document.querySelectorAll("[data-nav]");
+
+    function setActive(id) {
+      sections.forEach(s => s.classList.toggle("active", s.id === id));
+      allLinks.forEach(l => {
+        const on = l.dataset.nav === id;
+        l.classList.toggle("active", on);
+        if (on) l.setAttribute("aria-current", "page");
+        else l.removeAttribute("aria-current");
+      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    allLinks.forEach(l => {
+      l.addEventListener("click", (e) => {
+        const id = l.dataset.nav;
+        if (!id) return;
+        e.preventDefault();
+        setActive(id);
+        history.replaceState(null, "", "#" + id);
+      });
+    });
+
+    const initial = (location.hash || "#beranda").replace("#", "");
+    if (document.getElementById(initial)) setActive(initial);
+
+    /* ============================================================
+       VIDEO
+       ============================================================ */
+    const video = document.getElementById("berandaVideo");
+    if (video) {
+      video.volume = 1;
+      const p = video.play();
+      if (p && typeof p.catch === "function") {
+        p.catch(() => {
+          video.muted = true;
+          video.play().catch(() => {});
+        });
+      }
+    }
+
+    /* ============================================================
+       SLIDER REUSABLE — dipakai galeri & paket
+       ============================================================ */
+    function initSlider(root) {
+      const slidesEl   = root.querySelector(".slides");
+      const dotsEl     = root.querySelector(".slider-dots");
+      const progressEl = root.querySelector(".slider-progress");
+      const prevBtn    = root.querySelector(".slider-btn.prev");
+      const nextBtn    = root.querySelector(".slider-btn.next");
+      if (!slidesEl || !dotsEl) return;
+
+      const sectionId = root.getAttribute("data-slider");
+      const AUTOPLAY_MS = parseInt(root.getAttribute("data-autoplay") || "3500", 10);
+
+      const slides = slidesEl.querySelectorAll(".slide");
+      const total  = slides.length;
+      let index = 0;
+      let autoTimer = null;
+      let paused = false;
+
+      // Bikin dots
+      slides.forEach((_, i) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("aria-label", "Ke slide " + (i + 1));
+        if (i === 0) b.classList.add("active");
+        b.addEventListener("click", () => { goTo(i); restartAuto(); });
+        dotsEl.appendChild(b);
+      });
+      const dots = dotsEl.querySelectorAll("button");
+
+      function updateProgress() {
+        const pct = total > 1 ? (index / (total - 1)) * 100 : 100;
+        progressEl.style.width = pct + "%";
+      }
+
+      function goTo(i) {
+        index = (i + total) % total;
+        slidesEl.style.transform = `translateX(-${index * 100}%)`;
+        slides.forEach((s, k) => s.classList.toggle("is-active", k === index));
+        dots.forEach((d, k) => d.classList.toggle("active", k === index));
+        updateProgress();
+      }
+
+      function nextSlide() { goTo(index + 1); }
+      function prevSlide() { goTo(index - 1); }
+
+      function startAuto() {
+        stopAuto();
+        if (total < 2) return;
+        autoTimer = setInterval(() => {
+          if (paused) return;
+          if (document.hidden) return;
+          if (sectionId && !document.getElementById(sectionId).classList.contains("active")) return;
+          nextSlide();
+        }, AUTOPLAY_MS);
+      }
+      function stopAuto() { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+      function restartAuto() { stopAuto(); startAuto(); }
+
+      prevBtn.addEventListener("click", () => { prevSlide(); restartAuto(); });
+      nextBtn.addEventListener("click", () => { nextSlide(); restartAuto(); });
+
+      root.addEventListener("mouseenter", () => { paused = true; });
+      root.addEventListener("mouseleave", () => { paused = false; });
+      root.addEventListener("touchstart", () => { paused = true; }, { passive: true });
+      root.addEventListener("touchend",   () => { paused = false; }, { passive: true });
+
+      // Swipe
+      let startX = null;
+      slidesEl.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+      slidesEl.addEventListener("touchend", (e) => {
+        if (startX === null) return;
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) {
+          goTo(dx < 0 ? index + 1 : index - 1);
+          restartAuto();
+        }
+        startX = null;
+      });
+
+      // Keyboard ← → hanya saat section terkait aktif
+      document.addEventListener("keydown", (e) => {
+        if (sectionId && !document.getElementById(sectionId).classList.contains("active")) return;
+        if (e.key === "ArrowLeft")  { prevSlide(); restartAuto(); }
+        if (e.key === "ArrowRight") { nextSlide(); restartAuto(); }
+      });
+
+      updateProgress();
+      startAuto();
+    }
+
+    document.querySelectorAll("[data-slider]").forEach(initSlider);
+  </script>
+</body>
+</html>

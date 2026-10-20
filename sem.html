@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="New Wisata Wendit Malang — Rekreasi air, edukasi, dan konservasi. Waterboom, Monkey Kingdom, Family Zoo, paket edukasi & outbound." />
+<meta name="keywords" content="Wendit, Wisata Wendit, Wisata Malang, Waterboom Malang, Edukasi, Outbound, New Wisata Wendit" />
+<meta name="author" content="New Wisata Wendit" />
+<meta name="theme-color" content="#0E8388" />
+<title>New Wisata Wendit — Rekreasi, Edukasi & Konservasi</title>
+
+<link rel="icon" type="image/x-icon" sizes="16x16"   href="assets/icon/favicon-16x16.ico" />
+<link rel="icon" type="image/x-icon" sizes="32x32"   href="assets/icon/favicon-32x32.ico" />
+<link rel="icon" type="image/x-icon" sizes="48x48"   href="assets/icon/favicon-48x48.ico" />
+<link rel="icon" type="image/x-icon" sizes="64x64"   href="assets/icon/favicon-64x64.ico" />
+<link rel="icon" type="image/x-icon" sizes="128x128" href="assets/icon/favicon-128x128.ico" />
+<link rel="apple-touch-icon" sizes="256x256" href="assets/icon/favicon-256x256.ico" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+/* =========================================================
+   ROOT & RESET
+   ========================================================= */
+:root{
+  --primary:#0E8388;
+  --primary-dark:#0a6569;
+  --secondary:#8B5E3C;
+  --accent:#FFC93C;
+  --bg:#F5F7F0;
+  --bg-alt:#EDF2EC;
+  --text:#2C3333;
+  --text-soft:#5A6B6B;
+  --white:#fff;
+  --shadow-sm:0 4px 12px rgba(0,0,0,.06);
+  --shadow-md:0 10px 30px rgba(0,0,0,.10);
+  --shadow-lg:0 20px 50px rgba(0,0,0,.15);
+  --radius:16px;
+  --radius-sm:10px;
+  --container:1200px;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{
+  font-family:'Inter',system-ui,sans-serif;
+  color:var(--text);background:var(--bg);line-height:1.65;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;line-height:1.2;font-weight:700;color:var(--text)}
+h1{font-size:clamp(2rem,5vw,3.75rem);font-weight:800}
+h2{font-size:clamp(1.6rem,3.5vw,2.5rem)}
+h3{font-size:1.15rem}
+p{color:var(--text-soft)}
+
+/* UTIL */
+.container{width:100%;max-width:var(--container);margin:0 auto;padding:0 20px}
+.section{padding:clamp(60px,8vw,100px) 0}
+.section-alt{background:var(--bg-alt)}
+.section-head{text-align:center;max-width:640px;margin:0 auto 50px}
+.section-head p{margin-top:10px}
+.eyebrow{
+  display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--primary);background:rgba(14,131,136,.1);
+  padding:6px 14px;border-radius:999px;margin-bottom:14px;
+}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);align-items:center}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 26px;border-radius:999px;font-weight:600;font-size:.95rem;
+  transition:all .25s var(--ease);white-space:nowrap;
+}
+.btn-primary{background:var(--primary);color:var(--white);box-shadow:0 8px 20px rgba(14,131,136,.35)}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 12px 28px rgba(14,131,136,.45)}
+.btn-ghost{background:rgba(255,255,255,.15);color:var(--white);border:1.5px solid rgba(255,255,255,.5);backdrop-filter:blur(8px)}
+.btn-ghost:hover{background:rgba(255,255,255,.25);transform:translateY(-2px)}
+
+/* NAVBAR */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 0;transition:all .3s var(--ease)}
+.navbar.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(14px);box-shadow:var(--shadow-sm);padding:10px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-logo{width:42px;height:42px;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,.15))}
+.brand-text{font-family:'Poppins',sans-serif;font-weight:700;font-size:1.25rem;color:var(--white);transition:color .3s}
+.navbar.scrolled .brand-text{color:var(--text)}
+.nav-links{display:flex;gap:4px;align-items:center}
+.nav-links a{padding:8px 14px;border-radius:999px;font-size:.93rem;font-weight:500;color:rgba(255,255,255,.9);transition:all .2s var(--ease)}
+.navbar.scrolled .nav-links a{color:var(--text-soft)}
+.nav-links a:hover{background:rgba(255,255,255,.2);color:var(--white)}
+.navbar.scrolled .nav-links a:hover{background:rgba(14,131,136,.1);color:var(--primary)}
+.nav-cta{padding:10px 20px;font-size:.88rem}
+.hamburger{display:none;flex-direction:column;gap:5px;padding:8px}
+.hamburger span{width:24px;height:2.5px;background:var(--white);border-radius:2px;transition:all .3s var(--ease)}
+.navbar.scrolled .hamburger span{background:var(--text)}
+.hamburger.active span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;color:var(--white)}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.35) 50%,rgba(0,0,0,.78) 100%);z-index:-1}
+.hero-content{position:relative;padding:120px 20px 80px;max-width:820px;animation:fadeUp .9s var(--ease) both}
+.hero .badge{display:inline-block;padding:7px 16px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(10px);border-radius:999px;font-size:.85rem;font-weight:500;margin-bottom:22px}
+.hero-title-img{
+  display:block;width:100%;
+  max-width:clamp(240px,42vw,560px);
+  height:auto;margin:0 0 24px 0;
+  filter:drop-shadow(0 6px 18px rgba(0,0,0,.45));
+  user-select:none;-webkit-user-drag:none;
+}
+.hero h1.hero-title-fallback{color:var(--white);margin-bottom:20px;display:none}
+.hero h1.hero-title-fallback span{color:var(--accent)}
+.hero p{color:rgba(255,255,255,.9);font-size:clamp(1rem,1.3vw,1.15rem);max-width:620px;margin-bottom:34px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:50px}
+.hero-stats{display:flex;gap:clamp(24px,5vw,60px);flex-wrap:wrap}
+.hero-stats div{display:flex;flex-direction:column}
+.hero-stats strong{font-family:'Poppins',sans-serif;font-size:clamp(1.5rem,3vw,2rem);color:var(--accent);font-weight:700}
+.hero-stats span{font-size:.85rem;color:rgba(255,255,255,.75)}
+.scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);width:26px;height:42px;border:2px solid rgba(255,255,255,.6);border-radius:999px;display:flex;justify-content:center;padding-top:8px}
+.scroll-hint span{width:4px;height:8px;background:rgba(255,255,255,.9);border-radius:2px;animation:scrollDot 1.6s infinite}
+@keyframes scrollDot{0%{transform:translateY(0);opacity:1}100%{transform:translateY(14px);opacity:0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){.hero-title-img{max-width:clamp(220px,68vw,460px);margin-bottom:20px}}
+@media(max-width:640px){.hero-title-img{max-width:82vw;margin-bottom:16px}}
+
+/* TENTANG */
+.about-media{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-md)}
+.about-media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+.about-badge{position:absolute;bottom:20px;left:20px;background:var(--white);padding:14px 22px;border-radius:var(--radius-sm);box-shadow:var(--shadow-md);display:flex;flex-direction:column}
+.about-badge strong{color:var(--primary);font-family:'Poppins',sans-serif;font-size:1.1rem}
+.about-badge span{font-size:.8rem;color:var(--text-soft)}
+.about-text h2{margin-bottom:20px}
+.about-text p{margin-bottom:16px}
+.about-points{list-style:none;margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.about-points li{font-size:.93rem;padding:10px 14px;background:var(--white);border-radius:var(--radius-sm);box-shadow:var(--shadow-sm)}
+
+/* =========================================================
+   GALERI — Cinematic Marquee
+   ========================================================= */
+.marquee-wrap{
+  position:relative;padding:10px 0 30px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
+          mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
+}
+.marquee-row{overflow:hidden;padding:14px 0}
+.marquee-track{display:flex;width:max-content;will-change:transform}
+.marquee-track[data-row="1"]{animation:marquee-left 60s linear infinite}
+.marquee-track[data-row="2"]{animation:marquee-right 74s linear infinite}
+.marquee-track[data-row="3"]{animation:marquee-left 66s linear infinite}
+.marquee-row:hover .marquee-track{animation-play-state:paused}
+@keyframes marquee-left{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+@keyframes marquee-right{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
+.marquee-card{
+  position:relative;flex:0 0 auto;width:280px;aspect-ratio:4/5;
+  margin-right:20px;border-radius:18px;overflow:hidden;cursor:pointer;
+  background:#dfe5dc;box-shadow:0 6px 18px rgba(0,0,0,.08);
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+}
+.marquee-card img{width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.02);transition:opacity .5s ease,transform .8s var(--ease);display:block}
+.marquee-card img.loaded{opacity:1}
+.marquee-card::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.78) 100%);opacity:0;transition:opacity .35s var(--ease);z-index:1}
+.marquee-card::after{content:"";position:absolute;inset:0;border-radius:18px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,0);transition:box-shadow .35s var(--ease);z-index:2;pointer-events:none}
+.marquee-card:hover{transform:translateY(-8px) scale(1.035);box-shadow:0 24px 46px rgba(14,131,136,.30),0 6px 14px rgba(0,0,0,.12);z-index:5}
+.marquee-card:hover img{transform:scale(1.12)}
+.marquee-card:hover::before{opacity:1}
+.marquee-card:hover::after{box-shadow:inset 0 0 0 1.5px rgba(255,201,60,.55)}
+.card-label{position:absolute;left:16px;right:16px;bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:10px;color:#fff;font-family:'Poppins',sans-serif;font-weight:600;font-size:.9rem;transform:translateY(12px);opacity:0;transition:all .35s var(--ease);z-index:3}
+.card-label .num{font-size:.72rem;letter-spacing:.08em;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.32);backdrop-filter:blur(8px);padding:4px 10px;border-radius:999px}
+.marquee-card:hover .card-label{transform:translateY(0);opacity:1}
+@media(max-width:900px){.marquee-card{width:220px;margin-right:16px;border-radius:15px}}
+@media(max-width:640px){
+  .marquee-card{width:165px;margin-right:12px;border-radius:13px}
+  .marquee-wrap{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 4%,#000 96%,transparent 100%)}
+  .card-label{font-size:.78rem;left:10px;right:10px;bottom:10px}
+}
+
+/* =========================================================
+   PAKET WISATA
+   ========================================================= */
+.paket-block{margin-bottom:72px}
+.paket-block:last-of-type{margin-bottom:56px}
+.paket-block + .paket-block{padding-top:56px;border-top:1px solid rgba(14,131,136,.14)}
+
+.paket-title{text-align:center;margin-bottom:10px}
+.paket-title-img{
+  display:inline-block;width:auto;
+  max-width:min(400px,82vw);height:auto;
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,.06));
+}
+.paket-desc{
+  text-align:center;max-width:560px;margin:0 auto 34px;
+  font-size:.96rem;color:var(--text-soft);
+}
+
+/* --- Edukasi grid --- */
+.paket-grid-edukasi{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;margin-bottom:34px;
+}
+@media(min-width:520px){.paket-grid-edukasi{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}}
+@media(min-width:820px){.paket-grid-edukasi{grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}}
+@media(min-width:1100px){.paket-grid-edukasi{gap:18px}}
+.paket-item{
+  border-radius:16px;overflow:hidden;background:#fff;
+  box-shadow:0 4px 14px rgba(0,0,0,.06);
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+}
+.paket-item img{display:block;width:100%;height:auto}
+.paket-item:hover{transform:translateY(-5px);box-shadow:0 16px 34px rgba(14,131,136,.18),0 6px 14px rgba(0,0,0,.06)}
+
+/* --- Tier cards --- */
+.paket-tiers{display:grid;grid-template-columns:1fr;gap:18px;margin-top:10px}
+@media(min-width:720px){.paket-tiers{grid-template-columns:1fr 1fr;gap:22px}}
+.tier-card{
+  background:#fff;border-radius:18px;padding:28px 26px;
+  border:1.5px solid rgba(14,131,136,.14);
+  box-shadow:0 4px 14px rgba(0,0,0,.05);
+  transition:all .3s var(--ease);position:relative;overflow:hidden;
+}
+.tier-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  opacity:0;transition:opacity .3s var(--ease);
+}
+.tier-card:hover{transform:translateY(-4px);border-color:var(--primary);box-shadow:0 16px 36px rgba(14,131,136,.15)}
+.tier-card:hover::before{opacity:1}
+.tier-card h3{
+  font-family:'Poppins',sans-serif;font-size:1.2rem;color:var(--text);
+  margin-bottom:18px;padding-bottom:14px;
+  border-bottom:1.5px dashed rgba(14,131,136,.22);
+  display:flex;align-items:center;gap:10px;
+}
+.tier-card h3::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary);box-shadow:0 0 0 4px rgba(14,131,136,.14)}
+.tier-card ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.tier-card li{position:relative;padding-left:26px;font-size:.94rem;color:var(--text-soft);line-height:1.55}
+.tier-card li::before{content:"✓";position:absolute;left:0;top:-1px;color:var(--primary);font-weight:700;font-size:1rem}
+.tier-card--featured{background:linear-gradient(160deg,#fff 0%,#eef9f8 100%);border-color:var(--primary)}
+.tier-card--featured::before{opacity:1}
+.tier-card--featured h3::before{background:var(--accent);box-shadow:0 0 0 4px rgba(255,201,60,.25)}
+
+/* --- Wide card --- */
+.paket-wide-list{display:flex;flex-direction:column;gap:26px}
+.wide-card{
+  background:#fff;border-radius:20px;overflow:hidden;
+  border:1.5px solid rgba(14,131,136,.10);
+  box-shadow:0 6px 20px rgba(0,0,0,.05);
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);
+  display:grid;grid-template-columns:1fr;
+}
+@media(min-width:880px){.wide-card{grid-template-columns:minmax(280px,40%) 1fr;align-items:stretch}}
+.wide-card:hover{transform:translateY(-4px);border-color:rgba(14,131,136,.30);box-shadow:0 20px 44px rgba(14,131,136,.14),0 6px 16px rgba(0,0,0,.06)}
+.wide-card-media{
+  position:relative;background:linear-gradient(160deg,#f0f7f5 0%,#e3f1ef 100%);
+  display:flex;align-items:center;justify-content:center;padding:26px 22px;overflow:hidden;
+}
+.wide-card-media::before{
+  content:"";position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle,rgba(14,131,136,.14),transparent 70%);pointer-events:none;
+}
+.wide-card-media img{width:100%;height:auto;max-width:320px;position:relative;z-index:1;filter:drop-shadow(0 8px 18px rgba(14,131,136,.18))}
+.wide-card-body{padding:28px 30px;display:flex;flex-direction:column;gap:16px}
+@media(max-width:879px){.wide-card-body{padding:22px 20px}}
+.wide-card-body .wide-title{
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:1.15rem;
+  color:var(--text);letter-spacing:.01em;padding-bottom:14px;
+  border-bottom:1.5px dashed rgba(14,131,136,.22);
+  display:flex;align-items:center;gap:10px;
+}
+.wide-card-body .wide-title::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary);box-shadow:0 0 0 4px rgba(14,131,136,.14);flex:0 0 auto}
+.wide-desc{list-style:none;display:grid;grid-template-columns:1fr;gap:10px 26px}
+@media(min-width:600px) and (max-width:879px){.wide-desc{grid-template-columns:1fr 1fr}}
+@media(min-width:1100px){.wide-desc{grid-template-columns:1fr 1fr}}
+.wide-desc li{position:relative;padding-left:26px;font-size:.93rem;color:var(--text-soft);line-height:1.55}
+.wide-desc li::before{content:"✓";position:absolute;left:0;top:-1px;color:var(--primary);font-weight:700;font-size:1rem}
+
+/* --- CTA --- */
+.paket-cta{
+  text-align:center;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);
+  border-radius:20px;padding:44px 26px;color:var(--white);
+  box-shadow:0 16px 40px rgba(14,131,136,.28);
+  position:relative;overflow:hidden;margin-top:56px;
+}
+.paket-cta::before{content:"";position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,201,60,.28),transparent 70%);pointer-events:none}
+.paket-cta h3{color:var(--white);font-size:1.4rem;margin-bottom:8px;position:relative}
+.paket-cta p{color:rgba(255,255,255,.85);margin-bottom:22px;position:relative}
+.paket-cta .btn{background:var(--white);color:var(--primary);position:relative}
+.paket-cta .btn:hover{background:var(--accent);color:var(--text);transform:translateY(-2px)}
+
+/* DENAH */
+.denah-wrap{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-md);background:var(--white);padding:12px;cursor:zoom-in;margin:0}
+.denah-wrap img{width:100%;border-radius:var(--radius-sm);transition:transform .4s var(--ease)}
+.denah-wrap:hover img{transform:scale(1.02)}
+
+/* =========================================================
+   TIKET — Card style dengan warna beda per tipe
+   ========================================================= */
+.tiket-head-img{display:flex;justify-content:center;margin:-10px auto 40px}
+.tiket-head-img img{display:block;width:auto;height:auto;max-width:min(480px,80vw);filter:drop-shadow(0 4px 12px rgba(0,0,0,.06))}
+
+/* Legend keterangan hari */
+.tiket-legend{
+  display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
+  margin:-20px auto 32px;max-width:760px;
+}
+.tiket-legend-item{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.83rem;color:var(--text-soft);
+  background:#fff;padding:8px 16px;border-radius:999px;
+  border:1px solid rgba(14,131,136,.14);
+  box-shadow:0 2px 8px rgba(0,0,0,.03);
+}
+.tiket-legend-item .dot{
+  width:8px;height:8px;border-radius:50%;flex:0 0 auto;
+}
+.tiket-legend-item .dot--weekday{background:#0E8388;box-shadow:0 0 0 3px rgba(14,131,136,.15)}
+.tiket-legend-item .dot--weekend{background:#E8590C;box-shadow:0 0 0 3px rgba(232,89,12,.15)}
+
+.tiket-cards{display:grid;grid-template-columns:1fr;gap:24px;max-width:920px;margin:0 auto}
+@media(min-width:720px){.tiket-cards{grid-template-columns:1fr 1fr;gap:26px}}
+
+/* Base card */
+.tiket-card{
+  --tc:#0E8388;
+  --tc-dark:#0a6569;
+  --tc-soft:rgba(14,131,136,.07);
+  --tc-border:rgba(14,131,136,.18);
+  --tc-bg:linear-gradient(160deg,#ffffff 0%,#f0faf9 100%);
+  position:relative;
+  background:var(--tc-bg);
+  border-radius:22px;
+  padding:34px 28px 30px;
+  border:2px solid var(--tc-border);
+  box-shadow:0 8px 24px rgba(14,131,136,.08);
+  transition:all .35s var(--ease);
+  overflow:hidden;
+}
+.tiket-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:5px;
+  background:var(--tc);
+}
+.tiket-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--tc);
+  box-shadow:0 22px 46px var(--tc-soft), 0 8px 20px rgba(0,0,0,.06);
+}
+
+/* Varian warna: Terusan — orange premium */
+.tiket-card--terusan{
+  --tc:#E8590C;
+  --tc-dark:#B4420A;
+  --tc-soft:rgba(232,89,12,.08);
+  --tc-border:rgba(232,89,12,.22);
+  --tc-bg:linear-gradient(160deg,#ffffff 0%,#fff7ee 100%);
+  box-shadow:0 8px 24px rgba(232,89,12,.10);
+}
+.tiket-card--terusan::after{
+  content:"";position:absolute;top:-70px;right:-70px;
+  width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,89,12,.10),transparent 70%);
+  pointer-events:none;
+}
+
+/* Header */
+.tiket-card-head{position:relative;padding-bottom:20px;margin-bottom:22px;border-bottom:1.5px dashed var(--tc-border)}
+.tiket-card-head h3{
+  font-family:'Poppins',sans-serif;font-size:1.5rem;font-weight:700;
+  color:var(--text);margin-bottom:8px;
+  display:flex;align-items:center;gap:12px;
+}
+.tiket-card-head h3::before{
+  content:"";width:12px;height:12px;border-radius:50%;
+  background:var(--tc);box-shadow:0 0 0 4px var(--tc-soft);
+  flex:0 0 auto;
+}
+.tiket-card-head p{font-size:.88rem;color:var(--text-soft);line-height:1.5;position:relative;z-index:1}
+
+.tiket-badge{
+  display:inline-block;margin-top:12px;
+  font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:#fff;background:var(--tc);
+  padding:6px 14px;border-radius:999px;
+  box-shadow:0 4px 12px var(--tc-soft);
+  position:relative;z-index:1;
+}
+
+/* Keterangan hari */
+.tiket-card-days{
+  display:flex;flex-wrap:wrap;gap:8px;
+  margin-bottom:20px;
+  position:relative;z-index:1;
+}
+.tiket-day-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.72rem;font-weight:600;letter-spacing:.02em;
+  color:var(--text-soft);
+  background:rgba(255,255,255,.7);
+  border:1px solid var(--tc-border);
+  padding:5px 11px;border-radius:999px;
+}
+.tiket-day-tag::before{
+  content:"";width:6px;height:6px;border-radius:50%;
+  background:var(--tc);flex:0 0 auto;
+}
+
+/* Grid harga */
+.tiket-prices{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative;z-index:1}
+@media(max-width:420px){.tiket-prices{grid-template-columns:1fr}}
+
+.tiket-price{
+  display:flex;flex-direction:column;gap:4px;
+  padding:16px 14px;
+  background:rgba(255,255,255,.75);
+  border-radius:14px;
+  border:1px solid var(--tc-border);
+  transition:all .3s var(--ease);
+}
+.tiket-price:hover{
+  background:var(--tc-soft);
+  border-color:var(--tc);
+  transform:translateY(-2px);
+}
+.tiket-price-label{
+  font-size:.68rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--tc-dark);
+}
+.tiket-price-days{
+  font-size:.72rem;color:var(--text-soft);
+  line-height:1.35;margin-bottom:6px;
+}
+.tiket-price-value{
+  display:flex;align-items:baseline;gap:2px;
+  font-family:'Poppins',sans-serif;
+  color:var(--tc);
+}
+.tiket-currency{font-size:.95rem;font-weight:600;line-height:1}
+.tiket-price-value strong{font-size:2.1rem;font-weight:800;line-height:1;letter-spacing:-.02em}
+.tiket-unit{font-size:.95rem;font-weight:600;color:var(--text-soft)}
+
+.note{text-align:center;font-size:.85rem;margin-top:28px;font-style:italic;color:var(--text-soft)}
+
+/* FASILITAS */
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px}
+.feature{background:var(--white);border-radius:var(--radius);padding:28px 16px;text-align:center;box-shadow:var(--shadow-sm);transition:all .3s var(--ease)}
+.feature:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);background:var(--primary)}
+.feature span{font-size:2.4rem;display:block;margin-bottom:10px}
+.feature p{font-weight:600;font-size:.95rem;color:var(--text)}
+.feature:hover p{color:var(--white)}
+
+/* KONTAK */
+.contact-info h2{margin-bottom:26px}
+.contact-list{list-style:none;margin-bottom:30px}
+.contact-list li{display:flex;flex-direction:column;padding:14px 0;border-bottom:1px solid #E0E8E0}
+.contact-list strong{font-family:'Poppins',sans-serif;font-size:.85rem;color:var(--primary);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.contact-list span{color:var(--text-soft);font-size:.95rem}
+.contact-map{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:4/3}
+.contact-map iframe{width:100%;height:100%;border:0}
+
+/* FOOTER */
+.footer{background:#1A2626;color:rgba(255,255,255,.75);padding:60px 0 0}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;padding-bottom:40px}
+.footer-brand img{width:60px;margin-bottom:16px}
+.footer-brand p{color:rgba(255,255,255,.6);font-size:.93rem;max-width:340px}
+.footer-links h4{color:var(--white);font-size:1rem;margin-bottom:16px}
+.footer-links a{display:block;padding:6px 0;font-size:.93rem;color:rgba(255,255,255,.6);transition:color .2s var(--ease)}
+.footer-links a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:22px 0;text-align:center}
+.footer-bottom p{font-size:.85rem;color:rgba(255,255,255,.5)}
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+.lightbox{
+  position:fixed;inset:0;z-index:999;
+  background:rgba(12,18,18,.94);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  display:flex;flex-direction:column;padding:40px 30px 130px;
+  opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s ease;
+}
+.lightbox.active{opacity:1;visibility:visible}
+.lightbox-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;position:relative}
+.lightbox-stage img{max-width:100%;max-height:100%;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6);opacity:0;transform:scale(.96);transition:opacity .35s ease,transform .4s var(--ease)}
+.lightbox-stage img.loaded{opacity:1;transform:scale(1)}
+.lightbox-counter{position:absolute;top:28px;left:32px;color:rgba(255,255,255,.7);font-family:'Poppins',sans-serif;letter-spacing:.06em;font-size:.9rem;z-index:3}
+.lightbox-counter strong{color:var(--accent);font-size:1.15rem}
+.lightbox-close{position:absolute;top:22px;right:24px;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.20);color:#fff;font-size:1.6rem;line-height:1;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px);transition:all .25s var(--ease);z-index:4}
+.lightbox-close:hover{background:rgba(255,255,255,.25);transform:rotate(90deg)}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.20);color:#fff;font-size:2rem;line-height:1;display:flex;align-items:center;justify-content:center;padding-bottom:4px;backdrop-filter:blur(10px);transition:all .25s var(--ease);z-index:4;user-select:none}
+.lightbox-nav:hover{background:rgba(255,255,255,.25);transform:translateY(-50%) scale(1.08)}
+.lightbox-prev{left:22px}
+.lightbox-next{right:22px}
+.lightbox-thumbs{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);max-width:min(920px,92vw);padding:10px;display:flex;gap:6px;overflow-x:auto;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);scrollbar-width:thin;z-index:3}
+.lightbox-thumbs::-webkit-scrollbar{height:4px}
+.lightbox-thumbs::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:2px}
+.lightbox-thumbs img{width:54px;height:54px;object-fit:cover;border-radius:8px;cursor:pointer;flex:0 0 auto;opacity:.45;border:2px solid transparent;transition:all .25s var(--ease)}
+.lightbox-thumbs img:hover{opacity:.85;transform:translateY(-2px)}
+.lightbox-thumbs img.active{opacity:1;border-color:var(--accent);transform:translateY(-2px)}
+@media(max-width:640px){
+  .lightbox{padding:70px 12px 110px}
+  .lightbox-nav{width:42px;height:42px;font-size:1.5rem}
+  .lightbox-prev{left:8px}.lightbox-next{right:8px}
+  .lightbox-thumbs img{width:44px;height:44px}
+  .lightbox-counter{top:20px;left:18px;font-size:.8rem}
+  .lightbox-close{top:14px;right:14px;width:40px;height:40px;font-size:1.3rem}
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links{position:fixed;top:70px;left:0;right:0;background:var(--white);flex-direction:column;padding:20px;gap:4px;box-shadow:var(--shadow-md);transform:translateY(-150%);transition:transform .35s var(--ease);border-radius:0 0 var(--radius) var(--radius)}
+  .nav-links.active{transform:translateY(0)}
+  .nav-links a{color:var(--text-soft);width:100%;text-align:center;padding:12px}
+  .nav-cta{display:none}
+  .hamburger{display:flex}
+  .grid-2{grid-template-columns:1fr}
+  .about-media{order:-1}
+  .about-media img{aspect-ratio:16/10}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .footer-brand{grid-column:span 2}
+}
+@media(max-width:640px){
+  .hero-content{padding:100px 16px 60px}
+  .hero-stats{gap:24px}
+  .hero-stats strong{font-size:1.4rem}
+  .section-head{margin-bottom:36px}
+  .about-points{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;gap:30px}
+  .footer-brand{grid-column:auto}
+  .paket-block{margin-bottom:56px}
+  .paket-block + .paket-block{padding-top:44px}
+  .tier-card{padding:24px 20px}
+  .paket-cta{padding:36px 22px}
+  .tiket-card{padding:28px 22px 24px}
+  .tiket-card-head h3{font-size:1.3rem}
+  .tiket-price-value strong{font-size:1.75rem}
+  .tiket-legend{gap:8px;margin-bottom:24px}
+  .tiket-legend-item{font-size:.76rem;padding:6px 12px}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <a href="#hero" class="brand">
+      <img src="assets/logo.png" alt="Logo New Wisata Wendit" class="brand-logo" />
+      <span class="brand-text">Wendit</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#tentang">Tentang</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#paket">Paket</a>
+      <a href="#denah">Denah</a>
+      <a href="#tiket">Tiket</a>
+      <a href="#fasilitas">Fasilitas</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+
+    <a href="#tiket" class="btn btn-primary nav-cta">🎟️ Beli Tiket</a>
+
+    <button class="hamburger" id="hamburger" aria-label="Buka menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="assets/BG.jpeg">
+    <source src="assets/videos/beranda.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-overlay"></div>
+
+  <div class="container hero-content">
+    <span class="badge">✨ Baru Direvitalisasi 2024</span>
+
+    <img
+      src="assets/font/judul.png"
+      alt="New Wisata Wendit"
+      class="hero-title-img"
+      width="1152"
+      height="121"
+      fetchpriority="high"
+      decoding="async"
+    />
+
+    <h1 class="hero-title-fallback" id="heroTitleFallback">
+      New Wisata <span>Wendit</span>
+    </h1>
+
+    <p>Rekreasi • Edukasi • Konservasi — Nikmati kolam alami legendaris, waterboom modern, dan interaksi satwa di jantung Kabupaten Malang.</p>
+
+    <div class="hero-actions">
+      <a href="#tiket" class="btn btn-primary">Beli Tiket</a>
+      <a href="#paket" class="btn btn-ghost">Lihat Paket →</a>
+    </div>
+
+    <div class="hero-stats">
+      <div><strong>10+</strong><span>Wahana & Fasilitas</span></div>
+      <div><strong>5</strong><span>Paket Wisata</span></div>
+      <div><strong>4.7★</strong><span>Rating Pengunjung</span></div>
+    </div>
+  </div>
+
+  <a href="#tentang" class="scroll-hint" aria-label="Scroll ke bawah"><span></span></a>
+</section>
+
+<!-- ================= TENTANG ================= -->
+<section class="section" id="tentang">
+  <div class="container grid-2">
+    <div class="about-media">
+      <img src="assets/BG.jpeg" alt="Suasana New Wisata Wendit" loading="lazy" />
+      <div class="about-badge">
+        <strong>Sejak 2024</strong>
+        <span>Direvitalisasi</span>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <span class="eyebrow">Tentang Kami</span>
+      <h2>Harmoni Alam, Air, dan Edukasi</h2>
+      <p>Wendit adalah ikon wisata air alami di Malang yang telah lama menjadi favorit keluarga. Setelah melalui revitalisasi pada 2024, kini hadir dengan wajah baru sebagai <strong>New Wisata Wendit</strong> — memadukan rekreasi air, edukasi, dan konservasi dalam satu destinasi.</p>
+      <p>Kami menjaga keasrian kolam alami serta habitat monyet ekor panjang, sekaligus menghadirkan wahana modern seperti waterboom, Mokibana Slide, Family Zoo, dan area edukasi untuk pengalaman yang tak terlupakan.</p>
+
+      <ul class="about-points">
+        <li>🌊 Kolam alami + waterboom modern</li>
+        <li>🐒 Konservasi monyet & satwa edukatif</li>
+        <li>🎓 Paket edukasi & outbound sekolah</li>
+        <li>👨‍👩‍👧‍👦 Ramah keluarga & anak-anak</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALERI ================= -->
+<section class="section section-alt" id="galeri">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Galeri</span>
+      <h2>Momen Seru di Wendit</h2>
+      <p>Intip keseruan yang menanti kamu dan keluarga — klik foto untuk melihat lebih dekat.</p>
+    </div>
+  </div>
+
+  <div class="marquee-wrap" id="marqueeWrap">
+    <div class="marquee-row"><div class="marquee-track" data-row="1"></div></div>
+    <div class="marquee-row"><div class="marquee-track" data-row="2"></div></div>
+    <div class="marquee-row"><div class="marquee-track" data-row="3"></div></div>
+  </div>
+</section>
+
+<!-- ================= PAKET WISATA ================= -->
+<section class="section" id="paket">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Paket Wisata</span>
+      <h2>Pilih Paket Sesuai Kebutuhanmu</h2>
+      <p>Dari edukasi sekolah hingga outbound perusahaan — semua tersedia.</p>
+    </div>
+
+    <!-- ===== PAKET EDUKASI ===== -->
+    <div class="paket-block">
+      <div class="paket-title">
+        <img src="assets/paket_edukasi/Edukasi.png" alt="Paket Edukasi" class="paket-title-img" />
+      </div>
+      <p class="paket-desc">Program edukasi interaktif — belajar sambil bermain bersama keluarga & sekolah.</p>
+
+      <div class="paket-grid-edukasi">
+        <div class="paket-item"><img src="assets/paket_edukasi/Petani.png"  alt="Edukasi Petani"  loading="lazy" /></div>
+        <div class="paket-item"><img src="assets/paket_edukasi/Feeding.png" alt="Edukasi Feeding" loading="lazy" /></div>
+        <div class="paket-item"><img src="assets/paket_edukasi/Coklat.png"  alt="Edukasi Coklat"  loading="lazy" /></div>
+        <div class="paket-item"><img src="assets/paket_edukasi/Topeng.png"  alt="Edukasi Topeng"  loading="lazy" /></div>
+        <div class="paket-item"><img src="assets/paket_edukasi/Satwa.png"   alt="Edukasi Satwa"   loading="lazy" /></div>
+        <div class="paket-item"><img src="assets/paket_edukasi/totebag.png" alt="Edukasi Totebag" loading="lazy" /></div>
+      </div>
+
+      <div class="paket-tiers">
+        <div class="tier-card">
+          <h3>Reguler</h3>
+          <ul>
+            <li>Tiket Masuk, Ice breaking, Fun Games</li>
+            <li>Animal Show, Tour Guide, makan siang</li>
+            <li>Sertifikat Sekolah & Dokumentasi</li>
+            <li>Gratis 4 kolam renang</li>
+            <li>Merchandise hasil edukasi</li>
+          </ul>
+        </div>
+        <div class="tier-card tier-card--featured">
+          <h3>Terusan</h3>
+          <ul>
+            <li>Tiket Masuk, Ice breaking, Fun Games</li>
+            <li>Animal Show, Tour Guide, makan siang</li>
+            <li>Sertifikat Sekolah & Dokumentasi</li>
+            <li>Gratis 4 kolam renang</li>
+            <li>Merchandise hasil edukasi</li>
+            <li>Gratis 10 wahana</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAKET OUTBOUND ===== -->
+    <div class="paket-block">
+      <div class="paket-title">
+        <img src="assets/paket_outbound/outbound.png" alt="Paket Outbound" class="paket-title-img" />
+      </div>
+      <p class="paket-desc">Program outbound bersama trainer profesional untuk tim, komunitas, dan perusahaan.</p>
+
+      <div class="paket-wide-list">
+        <div class="wide-card">
+          <div class="wide-card-media">
+            <img src="assets/paket_outbound/expert.png" alt="Outbound Expert" loading="lazy" />
+          </div>
+          <div class="wide-card-body">
+            <div class="wide-title">Outbound Expert</div>
+            <ul class="wide-desc">
+              <li>Tiket masuk reguler</li>
+              <li>Hall W-Dome</li>
+              <li>Lunch box</li>
+              <li>Icebreaking</li>
+              <li>Area kegiatan</li>
+              <li>Animal Show</li>
+              <li>Outbond with trainer (durasi 90–120 menit)</li>
+              <li>Guide</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="wide-card">
+          <div class="wide-card-media">
+            <img src="assets/paket_outbound/mini.png" alt="Outbound Mini" loading="lazy" />
+          </div>
+          <div class="wide-card-body">
+            <div class="wide-title">Outbound Mini</div>
+            <ul class="wide-desc">
+              <li>Tiket masuk reguler</li>
+              <li>Hall W-Dome</li>
+              <li>Lunch box</li>
+              <li>Icebreaking</li>
+              <li>Area kegiatan</li>
+              <li>Animal Show</li>
+              <li>Outbond with trainer (durasi 45–60 menit)</li>
+              <li>Guide</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== PAKET WISUDA ===== -->
+    <div class="paket-block">
+      <div class="paket-title">
+        <img src="assets/paket_wisuda/wisuda.png" alt="Paket Wisuda" class="paket-title-img" />
+      </div>
+      <p class="paket-desc">Rayakan momen wisuda dengan suasana alam yang berkesan dan fasilitas lengkap.</p>
+
+      <div class="paket-wide-list">
+        <div class="wide-card">
+          <div class="wide-card-media">
+            <img src="assets/paket_wisuda/reguler.png" alt="Wisuda Reguler" loading="lazy" />
+          </div>
+          <div class="wide-card-body">
+            <div class="wide-title">Wisuda Reguler</div>
+            <ul class="wide-desc">
+              <li>Tiket masuk New Wisata Wendit</li>
+              <li>Lunchbox (Ibu & Anak)</li>
+              <li>Guide</li>
+              <li>Hall W.Dome</li>
+              <li>Sound System + Videotron</li>
+              <li>Panggung + dekorasi</li>
+              <li>Vandel merchandise</li>
+              <li>Dokumentasi</li>
+              <li>4 Kolam renang</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="wide-card">
+          <div class="wide-card-media">
+            <img src="assets/paket_wisuda/terusan.png" alt="Wisuda Terusan" loading="lazy" />
+          </div>
+          <div class="wide-card-body">
+            <div class="wide-title">Wisuda Terusan</div>
+            <ul class="wide-desc">
+              <li>Tiket masuk New Wisata Wendit</li>
+              <li>Lunchbox (Ibu & Anak)</li>
+              <li>Guide</li>
+              <li>Hall W.Dome</li>
+              <li>Sound System + Videotron</li>
+              <li>Panggung + dekorasi</li>
+              <li>Vandel merchandise</li>
+              <li>Dokumentasi</li>
+              <li>4 Kolam renang + 10 Wahana</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CTA ===== -->
+    <div class="paket-cta">
+      <h3>Butuh Paket Custom?</h3>
+      <p>Kami siap menyesuaikan paket dengan kebutuhan acaramu.</p>
+      <a href="#kontak" class="btn btn-primary">Hubungi Kami</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DENAH ================= -->
+<section class="section section-alt" id="denah">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Denah Area</span>
+      <h2>Jelajahi Setiap Sudut Wendit</h2>
+      <p>Klik gambar untuk memperbesar dan melihat detail area.</p>
+    </div>
+
+    <figure class="denah-wrap" id="denahWrap" data-src="assets/denah/Denah.jpeg">
+      <img src="assets/denah/Denah.jpeg" alt="Denah New Wisata Wendit" loading="lazy" />
+    </figure>
+  </div>
+</section>
+
+<!-- ================= TIKET ================= -->
+<section class="section" id="tiket">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:8px">
+      <span class="eyebrow">Harga Tiket</span>
+    </div>
+
+    <!-- Judul gambar: assets/tiket/harga.png -->
+    <div class="tiket-head-img">
+      <img src="assets/tiket/harga.png" alt="Harga Tiket New Wisata Wendit" />
+    </div>
+
+    <!-- Legend keterangan hari -->
+    <div class="tiket-legend">
+      <div class="tiket-legend-item">
+        <span class="dot dot--weekday"></span>
+        <span><strong>Weekday</strong> · Senin – Jumat</span>
+      </div>
+      <div class="tiket-legend-item">
+        <span class="dot dot--weekend"></span>
+        <span><strong>Weekend</strong> · Sabtu, Minggu &amp; Hari Libur Nasional</span>
+      </div>
+    </div>
+
+    <div class="tiket-cards">
+
+      <!-- ===== REGULER (teal theme) ===== -->
+      <div class="tiket-card">
+        <div class="tiket-card-head">
+          <h3>Reguler</h3>
+          <p>Akses 4 kolam renang &amp; area utama New Wisata Wendit.</p>
+        </div>
+
+        <div class="tiket-card-days">
+          <span class="tiket-day-tag">Weekday: Senin – Jumat</span>
+          <span class="tiket-day-tag">Weekend: Sabtu, Minggu &amp; Libur Nasional</span>
+        </div>
+
+        <div class="tiket-prices">
+          <div class="tiket-price">
+            <span class="tiket-price-label">Weekday</span>
+            <span class="tiket-price-days">Senin – Jumat</span>
+            <div class="tiket-price-value">
+              <span class="tiket-currency">Rp</span>
+              <strong>35</strong>
+              <span class="tiket-unit">.000</span>
+            </div>
+          </div>
+          <div class="tiket-price">
+            <span class="tiket-price-label">Weekend / Libur</span>
+            <span class="tiket-price-days">Sabtu, Minggu &amp; Hari Libur Nasional</span>
+            <div class="tiket-price-value">
+              <span class="tiket-currency">Rp</span>
+              <strong>40</strong>
+              <span class="tiket-unit">.000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== TERUSAN (orange premium theme) ===== -->
+      <div class="tiket-card tiket-card--terusan">
+        <div class="tiket-card-head">
+          <h3>Terusan</h3>
+          <p>Akses 4 kolam renang + 10 wahana lengkap.</p>
+          <span class="tiket-badge">Paling Populer</span>
+        </div>
+
+        <div class="tiket-card-days">
+          <span class="tiket-day-tag">Weekday: Senin – Jumat</span>
+          <span class="tiket-day-tag">Weekend: Sabtu, Minggu &amp; Libur Nasional</span>
+        </div>
+
+        <div class="tiket-prices">
+          <div class="tiket-price">
+            <span class="tiket-price-label">Weekday</span>
+            <span class="tiket-price-days">Senin – Jumat</span>
+            <div class="tiket-price-value">
+              <span class="tiket-currency">Rp</span>
+              <strong>65</strong>
+              <span class="tiket-unit">.000</span>
+            </div>
+          </div>
+          <div class="tiket-price">
+            <span class="tiket-price-label">Weekend / Libur</span>
+            <span class="tiket-price-days">Sabtu, Minggu &amp; Hari Libur Nasional</span>
+            <div class="tiket-price-value">
+              <span class="tiket-currency">Rp</span>
+              <strong>75</strong>
+              <span class="tiket-unit">.000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="note">*Harga dapat berubah sewaktu-waktu. Konfirmasi terbaru via kontak resmi.</p>
+  </div>
+</section>
+
+<!-- ================= FASILITAS ================= -->
+<section class="section section-alt" id="fasilitas">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Fasilitas & Wahana</span>
+      <h2>Serunya Main di Wendit</h2>
+    </div>
+
+    <div class="features">
+      <div class="feature"><span>🌊</span><p>Waterboom</p></div>
+      <div class="feature"><span>🎢</span><p>Mokibana Slide</p></div>
+      <div class="feature"><span>🐒</span><p>Monkey Kingdom</p></div>
+      <div class="feature"><span>🐰</span><p>Family Zoo</p></div>
+      <div class="feature"><span>🍫</span><p>Edukasi Cokelat</p></div>
+      <div class="feature"><span>🐴</span><p>Pony Ride</p></div>
+      <div class="feature"><span>🪂</span><p>Flying Fox</p></div>
+      <div class="feature"><span>🚤</span><p>Bumper Boat</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KONTAK ================= -->
+<section class="section" id="kontak">
+  <div class="container grid-2">
+    <div class="contact-info">
+      <span class="eyebrow">Kontak & Lokasi</span>
+      <h2>Kunjungi Kami</h2>
+
+      <ul class="contact-list">
+        <li><strong>Alamat</strong><span>Wendit, Mangliawan, Kec. Pakis, Kabupaten Malang, Jawa Timur</span></li>
+        <li><strong>Jam Buka</strong><span>Setiap hari, 07.00 – 17.00 WIB</span></li>
+        <li><strong>Telepon</strong><span>+62 812-3456-7890</span></li>
+        <li><strong>Email</strong><span>info@newwisatawendit.id</span></li>
+      </ul>
+
+      <a href="#tiket" class="btn btn-primary">Pesan Tiket Sekarang</a>
+    </div>
+
+    <div class="contact-map">
+      <iframe
+        src="https://www.google.com/maps?q=Wendit+Malang&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Lokasi New Wisata Wendit">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="Logo Wendit" />
+      <p>New Wisata Wendit — Rekreasi, Edukasi & Konservasi di Kabupaten Malang.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Jelajahi</h4>
+      <a href="#tentang">Tentang</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#paket">Paket</a>
+      <a href="#tiket">Tiket</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Bantuan</h4>
+      <a href="#kontak">Kontak</a>
+      <a href="#denah">Denah</a>
+      <a href="#fasilitas">Fasilitas</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© <span id="year"></span> New Wisata Wendit. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-counter" id="lightboxCounter"><strong>01</strong> / 56</div>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Tutup">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Sebelumnya">‹</button>
+  <div class="lightbox-stage"><img src="" alt="Preview" id="lightboxImg" /></div>
+  <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Berikutnya">›</button>
+  <div class="lightbox-thumbs" id="lightboxThumbs" aria-label="Thumbnail galeri"></div>
+</div>
+
+<script>
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+const navbar   = document.getElementById('navbar');
+const hamburger= document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+hamburger.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('active');
+  hamburger.classList.toggle('active', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+  });
+});
+
+/* =========================================================
+   HERO TITLE — fallback
+   ========================================================= */
+const heroTitleImg = document.querySelector('.hero-title-img');
+const heroTitleFallback = document.getElementById('heroTitleFallback');
+if (heroTitleImg && heroTitleFallback) {
+  heroTitleImg.addEventListener('error', () => {
+    heroTitleImg.style.display = 'none';
+    heroTitleFallback.style.display = 'block';
+  });
+}
+
+/* =========================================================
+   GALERI
+   ========================================================= */
+const GALLERY_TOTAL = 56;
+const GALLERY_PATH  = 'assets/galery/';
+const GALLERY_EXT   = '.jpeg';
+
+const PHOTOS = Array.from({ length: GALLERY_TOTAL }, (_, i) =>
+  `${GALLERY_PATH}${i + 1}${GALLERY_EXT}`
+);
+
+const CHUNK = Math.ceil(GALLERY_TOTAL / 3);
+const ROWS = [
+  PHOTOS.slice(0, CHUNK),
+  PHOTOS.slice(CHUNK, CHUNK * 2),
+  PHOTOS.slice(CHUNK * 2)
+];
+
+ROWS.forEach((rowPhotos, rowIdx) => {
+  const track = document.querySelector(`.marquee-track[data-row="${rowIdx + 1}"]`);
+  if (!track) return;
+
+  const loopPhotos = [...rowPhotos, ...rowPhotos];
+  const frag = document.createDocumentFragment();
+
+  loopPhotos.forEach((src, i) => {
+    const card = document.createElement('div');
+    card.className = 'marquee-card';
+    card.dataset.src = src;
+    card.tabIndex = 0;
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', `Perbesar foto ${(i % rowPhotos.length) + 1}`);
+
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = `Momen Wendit ${(i % rowPhotos.length) + 1}`;
+    img.loading = 'lazy';
+    img.decoding = 'async';
+    img.addEventListener('load',  () => img.classList.add('loaded'));
+    img.addEventListener('error', () => card.remove());
+
+    const label = document.createElement('div');
+    label.className = 'card-label';
+    label.innerHTML = `
+      <span>Wendit Moments</span>
+      <span class="num">${String((i % rowPhotos.length) + 1).padStart(2, '0')}</span>
+    `;
+
+    card.append(img, label);
+    frag.appendChild(card);
+  });
+
+  track.appendChild(frag);
+});
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+const lightbox        = document.getElementById('lightbox');
+const lightboxImg     = document.getElementById('lightboxImg');
+const lightboxClose   = document.getElementById('lightboxClose');
+const lightboxPrev    = document.getElementById('lightboxPrev');
+const lightboxNext    = document.getElementById('lightboxNext');
+const lightboxThumbs  = document.getElementById('lightboxThumbs');
+const lightboxCounter = document.getElementById('lightboxCounter');
+
+let lbIndex = 0;
+
+PHOTOS.forEach((src, idx) => {
+  const t = document.createElement('img');
+  t.src = src;
+  t.alt = `Foto ${idx + 1}`;
+  t.loading = 'lazy';
+  t.addEventListener('click', () => goTo(idx));
+  lightboxThumbs.appendChild(t);
+});
+const thumbEls = () => lightboxThumbs.querySelectorAll('img');
+
+function setImage(src) {
+  lightboxImg.classList.remove('loaded');
+  lightboxImg.style.opacity = '0';
+  lightboxImg.src = src;
+  const onLoad = () => {
+    lightboxImg.classList.add('loaded');
+    lightboxImg.style.opacity = '1';
+    lightboxImg.removeEventListener('load', onLoad);
+  };
+  lightboxImg.addEventListener('load', onLoad);
+}
+
+function updateActiveThumb() {
+  const thumbs = thumbEls();
+  thumbs.forEach((t, i) => t.classList.toggle('active', i === lbIndex));
+  const active = thumbs[lbIndex];
+  if (active) active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+}
+
+function updateCounter() {
+  lightboxCounter.innerHTML =
+    `<strong>${String(lbIndex + 1).padStart(2, '0')}</strong> / ${String(PHOTOS.length).padStart(2, '0')}`;
+}
+
+function goTo(idx) {
+  if (idx < 0) idx = PHOTOS.length - 1;
+  if (idx >= PHOTOS.length) idx = 0;
+  lbIndex = idx;
+  setImage(PHOTOS[lbIndex]);
+  updateActiveThumb();
+  updateCounter();
+}
+
+function openLightbox(idx) {
+  goTo(idx);
+  lightbox.classList.add('active');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  lightbox.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  setTimeout(() => { lightboxImg.src = ''; }, 320);
+}
+
+function navigate(dir) { goTo(lbIndex + dir); }
+
+document.addEventListener('click', (e) => {
+  const card = e.target.closest('.marquee-card');
+  if (!card) return;
+  const idx = PHOTOS.indexOf(card.dataset.src);
+  if (idx >= 0) openLightbox(idx);
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Enter' && e.key !== ' ') return;
+  const card = e.target.closest && e.target.closest('.marquee-card');
+  if (!card) return;
+  e.preventDefault();
+  const idx = PHOTOS.indexOf(card.dataset.src);
+  if (idx >= 0) openLightbox(idx);
+});
+
+const denahWrap = document.getElementById('denahWrap');
+if (denahWrap) {
+  denahWrap.addEventListener('click', () => {
+    lightboxImg.classList.remove('loaded');
+    lightboxImg.src = denahWrap.dataset.src;
+    lightboxImg.onload = () => lightboxImg.classList.add('loaded');
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    lightboxPrev.style.display = 'none';
+    lightboxNext.style.display = 'none';
+    lightboxCounter.style.display = 'none';
+    lightboxThumbs.style.display = 'none';
+  });
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); navigate(-1); });
+lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); navigate(1); });
+
+document.addEventListener('keydown', (e) => {
+  if (!lightbox.classList.contains('active')) return;
+  if (e.key === 'Escape')     closeLightbox();
+  if (e.key === 'ArrowLeft')  navigate(-1);
+  if (e.key === 'ArrowRight') navigate(1);
+});
+
+/* =========================================================
+   TAHUN FOOTER
+   ========================================================= */
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+/* =========================================================
+   REVEAL ON SCROLL
+   ========================================================= */
+const revealTargets = document.querySelectorAll(
+  '.section-head, .paket-block, .about-media, .about-text, .contact-info, .contact-map, .denah-wrap, .paket-cta, .tiket-card, .tiket-head-img, .tiket-legend'
+);
+
+revealTargets.forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity .7s ease, transform .7s ease';
+});
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+revealTargets.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
