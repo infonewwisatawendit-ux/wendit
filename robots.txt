@@ -1,10 +1,8 @@
 User-agent: *
 Allow: /
 
-# Blokir folder yang tidak perlu diindeks
 Disallow: /assets/videos/
 Disallow: /assets/icon/
 Disallow: /assets/font/
 
-# Sitemap
-Sitemap: https://newwisatawendit.com/sitemap.xml
+Sitemap: https://wisatawendit.com/sitemap.xml
